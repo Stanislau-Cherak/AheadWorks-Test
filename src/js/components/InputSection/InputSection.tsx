@@ -3,7 +3,7 @@ import { useAppDispatch } from "../../hooks/hooks";
 
 import { ClassNames } from "@emotion/react";
 
-import { createNote } from "../../slices/NotesSlice";
+import { addNote } from "../../slices/NotesSlice";
 
 import './InputSection.scss';
 
@@ -28,7 +28,7 @@ const InputSection: React.FC<InputSectionProps> = ({ maxLength }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputValue.trim().length) {
-      dispatch(createNote(inputValue));
+      dispatch(addNote(inputValue));
       setInputValue('');
     }
   };
