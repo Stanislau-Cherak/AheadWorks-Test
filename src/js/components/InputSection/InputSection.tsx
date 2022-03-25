@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAppDispatch } from "../../hooks/hooks";
 
-import { ClassNames } from "@emotion/react";
+import classNames from 'classnames';
 
 import { addNote } from "../../slices/NotesSlice";
 
@@ -18,7 +18,7 @@ const InputSection: React.FC<InputSectionProps> = ({ maxLength }) => {
   const [countOverflow, setCountOverflow] = useState<boolean>(false);
 
   const handleOnChange = (e) => {
-    if (e.target.value.length <= maxLength ) {
+    if (e.target.value.length <= maxLength) {
       setInputValue(e.target.value);
       setCountOverflow(false);
       return;
@@ -37,11 +37,11 @@ const InputSection: React.FC<InputSectionProps> = ({ maxLength }) => {
 
   return (
     <div className='input-section'>
-      <span className='input-section_title'>Add note...</span>
+      <span className='input-section_title title'>Add note...</span>
       <div className='input-section_form'>
         <form onSubmit={handleSubmit}>
           <input
-          className="input-section_input"
+            className={countOverflow ? classNames('input-section_input', 'alarm_input') : 'input-section_input'}
             type='text'
             placeholder="New note"
             value={inputValue}
@@ -49,11 +49,11 @@ const InputSection: React.FC<InputSectionProps> = ({ maxLength }) => {
           >
           </input>
         </form>
-        <span className='input-section_title message-length'>{inputValue.length}/{maxLength}</span>
+        <span className={countOverflow ? classNames('input-section_title', 'alarm') : 'input-section_title'}>{inputValue.length}/{maxLength}</span>
       </div>
       {countOverflow
         &&
-        <span className='input-section_warning'>You have exceeded the number of characters. Maximum quantity is {maxLength}.</span>
+        <span className='input-section_title alarm'>You have exceeded the number of characters. Maximum quantity is {maxLength}.</span>
       }
     </div>
   )

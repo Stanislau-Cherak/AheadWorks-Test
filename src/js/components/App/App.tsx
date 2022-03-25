@@ -11,7 +11,7 @@ const App: React.FC = () => {
   return (
     <div className="container">
       <NotesList />
-      <InputSection maxLength={10} />
+      <InputSection maxLength={300} />
     </div>
 
   )

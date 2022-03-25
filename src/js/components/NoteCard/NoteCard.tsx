@@ -26,7 +26,7 @@ const NoteCard: React.FC<NoteType> = ({ description, weather, time, date, id }) 
       <div className='note-card_weather'>
         <img src={iconURL}></img>
       </div>
-      <div className='note-card_temperature'>{Math.round(temperature)}</div>
+      <div className='note-card_temperature'>{Math.round(temperature)} &deg;C</div>
       <div className='note-card_date'>{date}</div>
       <div className='note-card_time'>{time}</div>
     </div>
