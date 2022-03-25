@@ -18,8 +18,9 @@ const InputSection: React.FC<InputSectionProps> = ({ maxLength }) => {
   const [countOverflow, setCountOverflow] = useState<boolean>(false);
 
   const handleOnChange = (e) => {
-    if (inputValue.length <= maxLength - 1) {
+    if (e.target.value.length <= maxLength ) {
       setInputValue(e.target.value);
+      setCountOverflow(false);
       return;
     }
     setCountOverflow(true);
@@ -30,9 +31,9 @@ const InputSection: React.FC<InputSectionProps> = ({ maxLength }) => {
     if (inputValue.trim().length) {
       dispatch(addNote(inputValue));
       setInputValue('');
+      setCountOverflow(false);
     }
   };
-
 
   return (
     <div className='input-section'>

@@ -1,0 +1,34 @@
+.note-card {
+  margin-bottom: 50px;
+  padding: 15px;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  max-height: 200px;
+  .close-button {
+    grid-column: 11 / 12;
+    grid-row : 1 / 2;
+    background: black;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    mask-size: 30px 30px;
+    mask-repeat:no-repeat;
+    mask-image: url('../../../image/close.svg');                    
+    transition: all 0.5s ease 0s;
+      &:hover {
+        background: red;                            
+      }
+  }
+  &_description {
+    grid-column: 1 / 8;
+    grid-row : 2 / 12;
+    font-size: 24px;
+  }
+  &_wearther {
+    grid-column: 1 / 8;
+    grid-row : 2 / 12;
+  }
+}
